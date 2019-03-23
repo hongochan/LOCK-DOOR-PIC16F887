@@ -99,6 +99,17 @@ char scan_key()
 	}
         return '\0';
 }
+void servoRotate90() //90 Degree
+{
+  unsigned int i;
+  for(i=0;i<50;i++)
+  {
+    RB0 = 1;
+    __delay_us(1500);
+    RB0 = 0;
+    __delay_us(18500);
+  }
+}
 				
 void main()
 {
@@ -164,6 +175,8 @@ void main()
                                    lcd_write_string("CORRECT ^O^");
                                    lcd_command(0XC0);
                                    lcd_write_string("LOCK DOOR OPEN");
+				    servoRotate90();
+				__delay_ms(2000);
                                    i=0;
                                    count=0;
                                 }
